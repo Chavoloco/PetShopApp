@@ -1,7 +1,13 @@
 .actions-menu{
-    padding: 30px 0px;
+    padding: 19px 0px;
 }
 
 .form-row{
     padding: 10px 0px;
+}
+.title-list{
+    text-align: center;
+    padding: 5px;
+    border-radius: 1px;
+    border: solid black;
 }
