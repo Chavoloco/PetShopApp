@@ -56,13 +56,13 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Identification</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Owner</th>
-                        <th scope="col">Options</th>
+                        <th scope="col">Last name</th>
                     </tr>
                 </thead>
-                <tbody id="list-pets">
+                <tbody id="list-vet">
                     
                 </tbody>
             </table>
@@ -81,36 +81,30 @@
                 <form id="form">
                   <input type="hidden" id="indice">
                     <div class="form-row">
-                        <div class="col">
-                            <select id="type" class="form-control" >
-                            <option>Animal type</option>
-                            <option>Dog</option>
-                            <option>Cat</option>
-                            <option>Bird</option>
-                            <option>Fish</option>
-                            <option>Another</option>
-                          </select>
-                        </div>
+                      <div class="col">
+                        <select id="country" class="form-control">
+                        <option>Country</option>
+                        <option>Argentina</option>
+                        <option>Brasil</option>
+                        <option>Uruguay</option>
+                        <option>Paraguay</option>
+                        <option>Bolivia</option>
+                        <option>Venezuela</option>
+                        <option>Ecuador</option>
+                        <option>Colombia</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <input id="identification" type="text" name="identification" class="form-control" placeholder="Identification">
+                      </div>
                     </div>
                     <div class="form-row">
                       <div class="col">
                         <input id="nombre" type="text" name="nombre" class="form-control" placeholder="Name">
                       </div>
-                      <!-- <div class="col">
-                        <input type="text" name="owner" class="form-control" placeholder="Owner">
-                      </div> -->
                       <div class="col">
-                        <select id="owner" class="form-control" id="exampleFormControlSelect1">
-                        <option>Owner</option>
-                        <option>Julían</option>
-                        <option>Marta</option>
-                        <option>Raul</option>
-                        <option>Steban</option>
-                        <option>Felix</option>
-                        <option>Lyman</option>
-                        <option>Mickey</option>
-                      </select>
-                    </div>
+                        <input id="lastName" type="text" name="lastName" class="form-control" placeholder="Last name">
+                      </div>
                     </div>
                 </form>
             </div>
