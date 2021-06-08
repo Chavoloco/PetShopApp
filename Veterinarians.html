@@ -43,7 +43,8 @@
     <!-- End navigator -->
     <!-- Begin buttons -->
     <div class="container">
-        <div class="actions-menu">
+      <div class="actions-menu">
+        <h2 class="title-list">Veterinarians</h2>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >
                 Create
             </button>
@@ -55,49 +56,14 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Owner</th>
                         <th scope="col">Options</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-info" style="padding: 0px 22px;">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info" style="padding: 0px 22px;">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>The Bird</td>
-                    <td>@twitter</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info"  style="padding: 0px 22px;">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                    </td>
-                  </tr>
+                <tbody id="list-pets">
+                    
                 </tbody>
             </table>
         </div>
@@ -107,37 +73,50 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalCenterTitle">New pet</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" id="btnX" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="form">
+                  <input type="hidden" id="indice">
                     <div class="form-row">
                         <div class="col">
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select id="type" class="form-control" >
                             <option>Animal type</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>Dog</option>
+                            <option>Cat</option>
+                            <option>Bird</option>
+                            <option>Fish</option>
+                            <option>Another</option>
                           </select>
                         </div>
                     </div>
                     <div class="form-row">
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="First name">
+                        <input id="nombre" type="text" name="nombre" class="form-control" placeholder="Name">
                       </div>
+                      <!-- <div class="col">
+                        <input type="text" name="owner" class="form-control" placeholder="Owner">
+                      </div> -->
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name">
-                      </div>
+                        <select id="owner" class="form-control" id="exampleFormControlSelect1">
+                        <option>Owner</option>
+                        <option>Julían</option>
+                        <option>Marta</option>
+                        <option>Raul</option>
+                        <option>Steban</option>
+                        <option>Felix</option>
+                        <option>Lyman</option>
+                        <option>Mickey</option>
+                      </select>
+                    </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSave">Create</button>
             </div>
           </div>
         </div>
@@ -147,5 +126,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/92efbd7cce.js" crossorigin="anonymous"></script>
+    <!-- <script defer src="https://use.fontawesome"></script> -->
+    <script src="js/veterinarians.js "></script>
   </body>
 </html>
