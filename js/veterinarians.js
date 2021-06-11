@@ -1,7 +1,7 @@
 const country=document.getElementById("country");
-const name=document.getElementById("name");
+const nombre=document.getElementById("nombre");
 const lastName=document.getElementById("lastName");
-const identification=document.getElementById("identification");
+const id=document.getElementById("id");
 const form=document.getElementById("form");
 const btnSave=document.getElementById("btnSave");
 const indice=document.getElementById("indice");
@@ -10,28 +10,29 @@ const btnX=document.getElementById("btnX");
 
 const listVet=document.getElementById("list-vet");
 
-let pets=[
+let vets=[
     {
         country:"Argentina",
-        identification:"4587846",
+        id:"4587846",
         nombre:"Rene",
-        lastName:"Favaloro"
+        lastName:"Favaloro",
     },
     {
         country:"Bolivia",
-        identification:"455486548",
+        id:"455486548",
         nombre:"Raul",
-        lastName:"Alfonsin"
+        lastName:"Alfonsin",
     }
 ];
 
 
-function toListPets(){
-    const htmlPets= pets.map((pet, index)=>`<tr>
+function toListVets(){
+    const htmlVets= vets.map((vet, index)=>`<tr>
             <th scope="row">${index}</th>
-            <td>${pet.type}</td>
-            <td>${pet.nombre}</td>
-            <td>${pet.owner}</td>
+            <td>${vet.country}</td>
+            <td>${vet.id}</td>
+            <td>${vet.nombre}</td>
+            <td>${vet.lastName}</td>
             <td>
             <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-info edit"  data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></button>
@@ -39,7 +40,7 @@ function toListPets(){
             </div>
             </td>
             </tr>`).join("");
-    listPets.innerHTML=htmlPets;
+        listVet.innerHTML=htmlVets;
     Array.from(document.getElementsByClassName("edit")).forEach((editButton,index)=>editButton.onclick=edit(index));
     Array.from(document.getElementsByClassName("delete")).forEach((deleteButton,index)=>deleteButton.onclick=deleteData(index));
 }
@@ -47,22 +48,23 @@ function toListPets(){
 function submitData(event){
     event.preventDefault();
     const data ={
-        type: type.value,
+        country: country.value,
+        id: id.value,
         nombre: nombre.value,
-        owner: owner.value
+        lastName: lastName.value,
     };
     const action=btnSave.innerHTML;
     switch(action){
         case 'Edit':
             //edit
-            pets[indice.value] = data;  
+            vets[indice.value] = data;  
             break;
         default:
             //create
-            pets.push(data);
+            vets.push(data);
             break;
     }
-    toListPets();
+    toListVets();
     resetModal();
 }
 
@@ -70,30 +72,32 @@ function edit(index){
     return function ClickIt(){
         btnSave.innerHTML='Edit';
         $('#exampleModalCenter').modal('toggle');
-        const pet = pets[index];
-        nombre.value=pet.nombre;
-        owner.value=pet.owner;
-        type.value=pet.type;
+        const vet = vets[index];
         indice.value=index;
+        country.value=vet.country;
+        id.value=vet.id;
+        nombre.value=vet.nombre;
+        lastName.value=lastName;
     }
 }
 
 function deleteData(index){
     return function clickDelete(){
-        pets=pets.filter((pet,indexPet)=>indexPet !== index);//Este metodo filtra todos los elementos del array y devuelve los elementos que no filtro
-        toListPets();
+        vets=vets.filter((vet,indexVet)=>indexVet !== index);//Este metodo filtra todos los elementos del array y devuelve los elementos que no filtro
+        toListVets();
 
     }
 }
 
 function resetModal(){
+    country.value='';
+    id.value='';
     nombre.value='';
-    owner.value='';
-    type.value='';
+    lastName.value='';
     indice.value='';
     btnSave.innerHTML='Create';
 }
-toListPets();
+toListVets();
 form.onsubmit = submitData;
 btnSave.onclick=submitData;
 btnClose.onclick=resetModal;
