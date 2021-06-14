@@ -8,31 +8,31 @@ const indice=document.getElementById("indice");
 const btnClose=document.getElementById("btnClose");
 const btnX=document.getElementById("btnX");
 
-const listVet=document.getElementById("list-vet");
+const listOwner=document.getElementById("list-owner");
 
-let vets=[
+let owners=[
     {
-        country:"Argentina",
-        id:"4587846",
-        nombre:"Rene",
-        lastName:"Favaloro",
+        country:"Brasil",
+        id:"594845",
+        nombre:"Pablo",
+        lastName:"Puentes",
     },
     {
-        country:"Bolivia",
-        id:"455486548",
-        nombre:"Raul",
-        lastName:"Alfonsin",
+        country:"Ecuador",
+        id:"48554845",
+        nombre:"Esteban",
+        lastName:"Quito",
     }
 ];
 
 
-function toListVets(){
-    const htmlVets= vets.map((vet, index)=>`<tr>
+function toListOwners(){
+    const htmlOwners= owners.map((owner, index)=>`<tr>
             <th scope="row">${index}</th>
-            <td>${vet.country}</td>
-            <td>${vet.id}</td>
-            <td>${vet.nombre}</td>
-            <td>${vet.lastName}</td>
+            <td>${owner.country}</td>
+            <td>${owner.id}</td>
+            <td>${owner.nombre}</td>
+            <td>${owner.lastName}</td>
             <td>
             <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-info edit"  data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></button>
@@ -40,7 +40,7 @@ function toListVets(){
             </div>
             </td>
             </tr>`).join("");
-        listVet.innerHTML=htmlVets;
+        listOwner.innerHTML=htmlOwners;
     Array.from(document.getElementsByClassName("edit")).forEach((editButton,index)=>editButton.onclick=edit(index));
     Array.from(document.getElementsByClassName("delete")).forEach((deleteButton,index)=>deleteButton.onclick=deleteData(index));
 }
@@ -57,14 +57,14 @@ function submitData(event){
     switch(action){
         case 'Edit':
             //edit
-            vets[indice.value] = data;  
+            owners[indice.value] = data;  
             break;
         default:
             //create
-            vets.push(data);
+            owners.push(data);
             break;
     }
-    toListVets();
+    toListOwners();
     resetModal();
 }
 
@@ -72,19 +72,19 @@ function edit(index){
     return function ClickIt(){
         btnSave.innerHTML='Edit';
         $('#exampleModalCenter').modal('toggle');
-        const vet = vets[index];
+        const owner = owners[index];
         indice.value=index;
-        country.value=vet.country;
-        id.value=vet.id;
-        nombre.value=vet.nombre;
-        lastName.value=vet.lastName;
+        country.value=owner.country;
+        id.value=owner.id;
+        nombre.value=owner.nombre;
+        lastName.value=owner.lastName;
     }
 }
 
 function deleteData(index){
     return function clickDelete(){
-        vets=vets.filter((vet,indexVet)=>indexVet !== index);//Este metodo filtra todos los elementos del array y devuelve los elementos que no filtro
-        toListVets();
+        owners=owners.filter((owner,indexOwner)=>indexOwner !== index);//Este metodo filtra todos los elementos del array y devuelve los elementos que no filtro
+        toListOwners();
 
     }
 }
@@ -97,7 +97,7 @@ function resetModal(){
     indice.value='';
     btnSave.innerHTML='Create';
 }
-toListVets();
+toListOwners();
 form.onsubmit = submitData;
 btnSave.onclick=submitData;
 btnClose.onclick=resetModal;
